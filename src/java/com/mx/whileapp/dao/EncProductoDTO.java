@@ -1,13 +1,6 @@
-package com.mx.whileapp.hibernate.mapping;
+package com.mx.whileapp.dao;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-
-@Entity
-@Table(name="productos_encuesta")
-public class EncProducto {
+public class EncProductoDTO {
     private Integer id_producto;
     private boolean resistor;
     private boolean cable_dupont;
@@ -26,34 +19,8 @@ public class EncProducto {
     private boolean led;
     private boolean matriz;
     private String otros;
-    @Id
     private Integer persona;
 
-    public EncProducto(Integer id_producto, boolean resistor, boolean cable_dupont, boolean sensor_340k, boolean l293d, boolean l298p, boolean l298nh, boolean qrd1114, boolean cny70, boolean tcrt5000, boolean placa_fenolica, boolean protoboard, boolean baterias_lipo, boolean pic, boolean avr, boolean led, boolean matriz, String otros, Integer persona) {
-        this.id_producto = id_producto;
-        this.resistor = resistor;
-        this.cable_dupont = cable_dupont;
-        this.sensor_340k = sensor_340k;
-        this.l293d = l293d;
-        this.l298p = l298p;
-        this.l298nh = l298nh;
-        this.qrd1114 = qrd1114;
-        this.cny70 = cny70;
-        this.tcrt5000 = tcrt5000;
-        this.placa_fenolica = placa_fenolica;
-        this.protoboard = protoboard;
-        this.baterias_lipo = baterias_lipo;
-        this.pic = pic;
-        this.avr = avr;
-        this.led = led;
-        this.matriz = matriz;
-        this.otros = otros;
-        this.persona = persona;
-    }
-
-    public EncProducto() {
-    }
-    
     public Integer getId_producto() {
         return id_producto;
     }
