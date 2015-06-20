@@ -7,5 +7,9 @@
     <property name="hibernate.connection.url">jdbc:postgresql://127.0.0.1:5432/while</property>
     <property name="hibernate.connection.username">while</property>
     <property name="hibernate.connection.password">JiZa</property>
+    <property name="hibernate.connection.show_sql">true</property>
+    
+    <mapping class="com.mx.whileapp.hibernate.EncPersona"/>
+    
   </session-factory>
 </hibernate-configuration>
