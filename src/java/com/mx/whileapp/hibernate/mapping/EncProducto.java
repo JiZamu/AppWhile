@@ -1,4 +1,4 @@
-package com.mx.whileapp.hibernate;
+package com.mx.whileapp.hibernate.mapping;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

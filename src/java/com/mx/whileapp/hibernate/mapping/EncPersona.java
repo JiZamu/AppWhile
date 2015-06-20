@@ -1,5 +1,6 @@
-package com.mx.whileapp.hibernate;
+package com.mx.whileapp.hibernate.mapping;
 
+import com.mx.whileapp.hibernate.mapping.EncProducto;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Id;

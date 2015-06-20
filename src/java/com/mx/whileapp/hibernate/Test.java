@@ -5,6 +5,7 @@
  */
 package com.mx.whileapp.hibernate;
 
+import com.mx.whileapp.hibernate.mapping.EncPersona;
 import org.hibernate.Session;
 
 public class Test {
