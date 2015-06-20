@@ -10,6 +10,7 @@
     <property name="hibernate.connection.show_sql">true</property>
     
     <mapping class="com.mx.whileapp.hibernate.EncPersona"/>
+    <mapping class="com.mx.whileapp.hibernate.EncProducto"/>
     
   </session-factory>
 </hibernate-configuration>

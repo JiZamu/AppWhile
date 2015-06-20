@@ -14,6 +14,7 @@ public class EncPersona {
     private String escuela;
     private String carrera;
     private Date fec_entrada;
+    private EncProducto enc_pro;
 
     public Integer getId_persona() {
         return id_persona;
@@ -53,6 +54,14 @@ public class EncPersona {
 
     public void setFec_entrada(Date fec_entrada) {
         this.fec_entrada = fec_entrada;
+    }
+
+    public EncProducto getEnc_pro() {
+        return enc_pro;
+    }
+
+    public void setEnc_pro(EncProducto enc_pro) {
+        this.enc_pro = enc_pro;
     }
     
     

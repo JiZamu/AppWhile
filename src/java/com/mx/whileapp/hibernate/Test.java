@@ -10,11 +10,18 @@ import org.hibernate.Session;
 public class Test {
     public static void main(String[] args){
         Session session = HibernateSessionFactory.getSession();
-        EncPersona per = (EncPersona)session.get(EncPersona.class, 1);
-        System.out.println(per.getNombre());
-        System.out.println(per.getEscuela());
-        System.out.println(per.getCarrera());
-        System.out.println(per.getFec_entrada());
-        session.close();
+        
+        //Test EncPersona
+//        EncPersona per = (EncPersona)session.get(EncPersona.class, 1);
+//        System.out.println(per.getNombre());
+//        System.out.println(per.getEscuela());
+//        System.out.println(per.getCarrera());
+//        System.out.println(per.getFec_entrada());
+//        session.close();
+        
+        EncProducto pro = (EncProducto)session.get(EncProducto.class, 1);
+        System.out.println(pro.getId_producto());
+        System.out.println(pro.getOtros());
+        System.out.println(pro.isL293d());
     }
 }
