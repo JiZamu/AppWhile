@@ -8,7 +8,6 @@ import javax.persistence.Table;
 @Entity
 @Table(name="productos_encuesta")
 public class EncProducto {
-    @Id
     private Integer id_producto;
     private boolean resistor;
     private boolean cable_dupont;
@@ -27,6 +26,7 @@ public class EncProducto {
     private boolean led;
     private boolean matriz;
     private String otros;
+    @Id
     private Integer persona;
 
     public Integer getId_producto() {

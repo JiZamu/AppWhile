@@ -3,6 +3,8 @@ package com.mx.whileapp.hibernate;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -14,6 +16,8 @@ public class EncPersona {
     private String escuela;
     private String carrera;
     private Date fec_entrada;
+    @OneToOne
+    @JoinColumn(name="id_persona")
     private EncProducto enc_pro;
 
     public Integer getId_persona() {

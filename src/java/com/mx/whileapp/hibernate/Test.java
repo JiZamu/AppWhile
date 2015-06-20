@@ -17,11 +17,24 @@ public class Test {
 //        System.out.println(per.getEscuela());
 //        System.out.println(per.getCarrera());
 //        System.out.println(per.getFec_entrada());
-//        session.close();
         
-        EncProducto pro = (EncProducto)session.get(EncProducto.class, 1);
-        System.out.println(pro.getId_producto());
-        System.out.println(pro.getOtros());
-        System.out.println(pro.isL293d());
+        //Test EncProducto
+//        EncProducto pro = (EncProducto)session.get(EncProducto.class, 1);
+//        System.out.println(pro.getId_producto());
+//        System.out.println(pro.getOtros());
+//        System.out.println(pro.isL293d());
+        
+        //TestUnionOneToOne
+        EncPersona per = (EncPersona)session.get(EncPersona.class, 2);
+        System.out.println(per.getId_persona());
+        System.out.println(per.getNombre());
+        System.out.println(per.getEscuela());
+        System.out.println(per.getCarrera());
+        System.out.println(per.getFec_entrada()); 
+        System.out.println(per.getEnc_pro().getPersona());
+        System.out.println(per.getEnc_pro().getId_producto());
+ 
+        session.close();
+        
     }
 }
