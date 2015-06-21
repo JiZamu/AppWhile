@@ -5,6 +5,8 @@
  */
 package com.mx.whileapp.hibernate;
 
+import com.mx.whileapp.dao.EncPersonaDTO;
+import com.mx.whileapp.dao.EncProductoDTO;
 import com.mx.whileapp.hibernate.mapping.EncPersona;
 import com.mx.whileapp.hibernate.mapping.EncProducto;
 import java.util.Date;
@@ -40,16 +42,21 @@ public class Test {
 //        System.out.println(per.getEnc_pro().getPersona());
 //        System.out.println(per.getEnc_pro().getId_producto());
 // 
-        Transaction tr = session.beginTransaction();
         
+//        Transaction tr = session.beginTransaction();
+//        Query query = (Query)session.createSQLQuery( "select nextval('personas_encuesta_id_persona_seq');" );
+//        Integer key = Integer.parseInt(query.list().get( 0 ).toString());
+//        EncPersona persona = new EncPersona(key, "Eduardo Ji", "ESIME", "COMPU", new Date(System.currentTimeMillis())); 
+//        EncProducto prod= new EncProducto(key, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, "PruebaHimernate", key);
+//        session.save(persona);
+//        session.save(prod);
+//        tr.commit();
+//        session.close();
         
-        Query query = (Query)session.createSQLQuery( "select nextval('personas_encuesta_id_persona_seq');" );
-        Integer key = Integer.parseInt(query.list().get( 0 ).toString());
-        EncPersona persona = new EncPersona(key, "Eduardo Ji", "ESIME", "COMPU", new Date(System.currentTimeMillis())); 
-        EncProducto prod= new EncProducto(key, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, "PruebaHimernate", key);
-        session.save(persona);
-        session.save(prod);
-        tr.commit();
-        session.close();
+        EncPersonaDAOHibernate en = new EncPersonaDAOHibernate();
+        EncPersonaDTO persona = new EncPersonaDTO("Eduardo Hernandez", "ESIME", "COMPU", new Date(System.currentTimeMillis()));
+        EncProductoDTO prod = new EncProductoDTO(true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, "PruebaHimernate");
+
+        en.insert(persona, prod);
     }
 }

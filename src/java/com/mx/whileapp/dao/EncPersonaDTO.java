@@ -9,6 +9,25 @@ public class EncPersonaDTO {
     private String carrera;
     private Date fec_entrada;
 
+    public EncPersonaDTO() {
+    }
+
+    //Constructor personalizado para DAOhibernate ya que los demas datos no se usan
+    public EncPersonaDTO(String nombre, String escuela, String carrera, Date fec_entrada) {
+        this.nombre = nombre;
+        this.escuela = escuela;
+        this.carrera = carrera;
+        this.fec_entrada = fec_entrada;
+    }
+
+    public EncPersonaDTO(Integer id_persona, String nombre, String escuela, String carrera, Date fec_entrada) {
+        this.id_persona = id_persona;
+        this.nombre = nombre;
+        this.escuela = escuela;
+        this.carrera = carrera;
+        this.fec_entrada = fec_entrada;
+    }
+    
     public Integer getId_persona() {
         return id_persona;
     }
