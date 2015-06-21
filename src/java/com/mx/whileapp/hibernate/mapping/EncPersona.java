@@ -1,9 +1,10 @@
 package com.mx.whileapp.hibernate.mapping;
 
-import com.mx.whileapp.hibernate.mapping.EncProducto;
 import java.util.Date;
-import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
@@ -22,15 +23,14 @@ public class EncPersona {
     @JoinColumn(name="id_persona")
     private EncProducto enc_pro;
 
-    public EncPersona(Integer id_persona, String nombre, String escuela, String carrera, Date fec_entrada, EncProducto enc_pro) {
+    public EncPersona(Integer id_persona, String nombre, String escuela, String carrera, Date fec_entrada) {
         this.id_persona = id_persona;
         this.nombre = nombre;
         this.escuela = escuela;
         this.carrera = carrera;
         this.fec_entrada = fec_entrada;
-        this.enc_pro = enc_pro;
     }
-
+    
     public EncPersona() {
     }
     

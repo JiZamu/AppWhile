@@ -6,27 +6,30 @@ import com.mx.whileapp.dao.EncProductoDTO;
 import com.mx.whileapp.hibernate.mapping.EncPersona;
 import com.mx.whileapp.hibernate.mapping.EncProducto;
 import java.util.Collection;
+import java.util.Date;
+import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 public class EncPersonaDAOHibernate implements EncPersonaDAO{
 
     @Override
-    public int insert(EncPersonaDTO persona) {
-        return 1;
+    public void insert(EncPersonaDTO persona) {
+        //return 1;
     }
 
     @Override
-    public int isert(EncPersonaDTO persona, EncProductoDTO producto) {
+    public void isert(EncPersonaDTO persona, EncProductoDTO producto) {
         Session session = HibernateSessionFactory.getSession();
-        EncPersona pers = new EncPersona();
-        pers.setCarrera(persona.getCarrera());
-        pers.setEscuela(persona.getEscuela());
-        pers.setFec_entrada(persona.getFec_entrada());
-        pers.setNombre(persona.getNombre());
-        EncProducto prod = pers.getEnc_pro();
-        
-        
-        session.save();
+        Transaction tr = session.beginTransaction();
+        Query query = (Query)session.createSQLQuery( "select nextval('personas_encuesta_id_persona_seq');" );
+        Integer key = Integer.parseInt(query.list().get( 0 ).toString());
+        EncPersona pers = new EncPersona(key, "Eduardo Ji", "ESIME", "COMPU", new Date(System.currentTimeMillis())); 
+        EncProducto prod= new EncProducto(key, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, "PruebaHimernate", key);
+        session.save(pers);
+        session.save(prod);
+        tr.commit();
+        session.close();
     }
 
     @Override

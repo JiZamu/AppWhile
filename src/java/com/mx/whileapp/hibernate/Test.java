@@ -8,6 +8,7 @@ package com.mx.whileapp.hibernate;
 import com.mx.whileapp.hibernate.mapping.EncPersona;
 import com.mx.whileapp.hibernate.mapping.EncProducto;
 import java.util.Date;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -41,12 +42,14 @@ public class Test {
 // 
         Transaction tr = session.beginTransaction();
         
-        EncProducto prod= new EncProducto(13, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, "PruebaHimernate", 14);
-        EncPersona persona = new EncPersona( 14,"Eduardo H", "AZCAPO", "COMPU", new Date(3298987687L), prod); 
+        
+        Query query = (Query)session.createSQLQuery( "select nextval('personas_encuesta_id_persona_seq');" );
+        Integer key = Integer.parseInt(query.list().get( 0 ).toString());
+        EncPersona persona = new EncPersona(key, "Eduardo Ji", "ESIME", "COMPU", new Date(System.currentTimeMillis())); 
+        EncProducto prod= new EncProducto(key, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, "PruebaHimernate", key);
         session.save(persona);
         session.save(prod);
         tr.commit();
         session.close();
-        
     }
 }

@@ -51,6 +51,8 @@ public class EncProducto {
         this.persona = persona;
     }
 
+
+
     public EncProducto() {
     }
     
