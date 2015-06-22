@@ -8,9 +8,14 @@ import com.mx.whileapp.hibernate.mapping.EncProducto;
 import java.util.Collection;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 public class EncPersonaDAOHibernate implements EncPersonaDAO{
+    private Session session;
+    private SessionFactory sessionf;
+    private Transaction transaction;
+    
 
     @Override
     public void insert(EncPersonaDTO persona) {
