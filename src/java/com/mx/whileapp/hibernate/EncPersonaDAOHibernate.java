@@ -24,8 +24,7 @@ public class EncPersonaDAOHibernate implements EncPersonaDAO{
 
     @Override
     public void insert(EncPersonaDTO persona, EncProductoDTO producto) {
-        Session session = HibernateSessionFactory.getSession();
-        Transaction tr = session.beginTransaction();
+        startOperation();
         
         Query query = (Query)session.createSQLQuery( "select nextval('personas_encuesta_id_persona_seq');" );
         Integer key = Integer.parseInt(query.list().get( 0 ).toString());
@@ -35,7 +34,7 @@ public class EncPersonaDAOHibernate implements EncPersonaDAO{
         
         session.save(pers);
         session.save(prod);
-        tr.commit();
+        transaction.commit();
         session.close();
     }
 
@@ -43,5 +42,36 @@ public class EncPersonaDAOHibernate implements EncPersonaDAO{
     public Collection<EncPersonaDTO> getPersonas() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+    private void startOperation(){
+        session = sessionf.getCurrentSession();
+        transaction = session.beginTransaction();
+    }
+
+    public Session getSession() {
+        return session;
+    }
+
+    public void setSession(Session session) {
+        this.session = session;
+    }
+
+    public SessionFactory getSessionf() {
+        return sessionf;
+    }
+
+    public void setSessionf(SessionFactory sessionf) {
+        this.sessionf = sessionf;
+    }
+
+    public Transaction getTransaction() {
+        return transaction;
+    }
+
+    public void setTransaction(Transaction transaction) {
+        this.transaction = transaction;
+    }
+    
+    
     
 }
