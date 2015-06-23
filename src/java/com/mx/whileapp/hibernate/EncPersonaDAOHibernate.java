@@ -44,7 +44,7 @@ public class EncPersonaDAOHibernate implements EncPersonaDAO{
     }
     
     private void startOperation(){
-        session = sessionf.getCurrentSession();
+        session = sessionf.openSession();
         transaction = session.beginTransaction();
     }
 
@@ -61,6 +61,7 @@ public class EncPersonaDAOHibernate implements EncPersonaDAO{
     }
 
     public void setSessionf(SessionFactory sessionf) {
+                System.out.println("Session Factory creada");
         this.sessionf = sessionf;
     }
 

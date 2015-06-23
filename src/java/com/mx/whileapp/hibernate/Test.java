@@ -5,6 +5,7 @@
  */
 package com.mx.whileapp.hibernate;
 
+import com.mx.whileapp.dao.EncPersonaDAO;
 import com.mx.whileapp.dao.EncPersonaDTO;
 import com.mx.whileapp.dao.EncProductoDTO;
 import com.mx.whileapp.hibernate.mapping.EncPersona;
@@ -13,10 +14,12 @@ import java.util.Date;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 public class Test {
     public static void main(String[] args){
-        Session session = HibernateSessionFactory.getSession();
+//        Session session = HibernateSessionFactory.getSession();
         
         //Seleccion 
           //Test EncPersona
@@ -53,10 +56,21 @@ public class Test {
 //        tr.commit();
 //        session.close();
         
-        EncPersonaDAOHibernate en = new EncPersonaDAOHibernate();
-        EncPersonaDTO persona = new EncPersonaDTO("Eduardo Hernandez", "ESIME", "COMPU", new Date(System.currentTimeMillis()));
+        
+        //Prueba de hibernate
+//        EncPersonaDAOHibernate en = new EncPersonaDAOHibernate();
+//        EncPersonaDTO persona = new EncPersonaDTO("Eduardo Hernandez", "ESIME", "COMPU", new Date(System.currentTimeMillis()));
+//        EncProductoDTO prod = new EncProductoDTO(true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, "PruebaHimernate");
+//
+//        en.insert(persona, prod);
+        
+        ApplicationContext appContext = new FileSystemXmlApplicationContext("src/java/beans.xml");
+       
+        EncPersonaDAO en = (EncPersonaDAO)appContext.getBean("encPersonaDAO");
+        EncPersonaDTO persona = new EncPersonaDTO("Eduardo J", "ESIME", "COMPU", new Date(System.currentTimeMillis()));
         EncProductoDTO prod = new EncProductoDTO(true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, "PruebaHimernate");
 
-        en.insert(persona, prod);
+        for(int i = 0; i <= 10000; i++ )
+            en.insert(persona, prod);
     }
 }
