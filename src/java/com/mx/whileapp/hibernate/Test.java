@@ -18,6 +18,18 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 public class Test {
+    private ApplicationContext ac;
+
+    public ApplicationContext getAc() {
+        return ac;
+    }
+
+    public void setAc(ApplicationContext ac) {
+        this.ac = ac;
+    }
+    
+    
+    
     public static void main(String[] args){
 //        Session session = HibernateSessionFactory.getSession();
         
@@ -70,7 +82,7 @@ public class Test {
         EncPersonaDTO persona = new EncPersonaDTO("Eduardo J", "ESIME", "COMPU", new Date(System.currentTimeMillis()));
         EncProductoDTO prod = new EncProductoDTO(true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, "PruebaHimernate");
 
-        for(int i = 0; i <= 10000; i++ )
+        for(int i = 1; i <= 10; i++ )
             en.insert(persona, prod);
     }
 }
