@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Encuesta</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type ="text/css" href="css/styles.css">     
+    </head>
+    <header>
+
+        <p id="logo">
+            <img src="css/logo.png"> En While nos gustaria apoyarte
+        <p/>
+
+    </header>
+    <body>
+    <div id="contenedor">
+        <div id="mensaje">
+            Queremos saber tu opinion con respecto a componentes electronicos que te gustaria adquirir.<br/>
+            De la siguiente lista selecciona los elementos que te gustaria adquirir con nosotros, en caso de no estar agradecemos
+            tu comentario extra.<br/>
+        </div>
+
+        <form  method="post" action="/AppWhile/while">
+            
+            <div id ="componentes">
+                <table id="lista"style="width:100%">
+                    <tr>
+                        <td><input type="checkbox" name="selection" value="resistor"/>Resistor</td>
+                        <td><input type="checkbox" name="selection" value="cable_dupont"/>Cable dupont</td>
+                        <td><input type="checkbox" name="selection" value="sensor_340k"/>Sensor 340k</td>
+                        <td><input type="checkbox" name="selection" value="l293d"/>l293d</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="selection" value="l298p"/>l298p</td>
+                        <td><input type="checkbox" name="selection" value="l298nh"/>l298nh</td>
+                        <td><input type="checkbox" name="selection" value="qrd1114"/>qrd1114</td>
+                        <td><input type="checkbox" name="selection" value="cny70"/>cny70</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="selection" value="tcrt5000"/>tcrt5000</td>
+                        <td><input type="checkbox" name="selection" value="placa_fenolica"/>placa_fenolica</td>
+                        <td><input type="checkbox" name="selection" value="protoboard"/>protoboard</td>
+                        <td><input type="checkbox" name="selection" value="baterias_lipo"/>baterias_lipo</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="selection" value="pic"/>pic</td>
+                        <td><input type="checkbox" name="selection" value="avr"/>avr</td>
+                        <td><input type="checkbox" name="selection" value="led"/>led</td>
+                        <td><input type="checkbox" name="selection" value="matriz"/>matriz</td>
+                    </tr>                       
+                </table>
+                <div id="otros">
+                    <label>Otros: </label>
+                    <input type="text" name="otros"/>
+                    <input type="submit" name="enviar" value="Enviar"/>
+                </div>
+            </div>
+            <div id="datos">
+                <p>Apoyanos dejando tus datos:</p>
+                <div class="datitos">
+                    <label>Nombre: </label>
+                    <input type="text" name="nombre"/><br/>
+                </div>
+                <div class="datitos">
+                    <label>Escuela: </label>
+                    <input type="text" name="escuela"/><br/>
+                </div>
+                <div class="datitos">
+                    <label>Carrera: </label>
+                    <input type="text" name="carrera"/><br/>
+                </div>
+            </div>
+        </form>
+    </div>  
+    </body>
+</html>

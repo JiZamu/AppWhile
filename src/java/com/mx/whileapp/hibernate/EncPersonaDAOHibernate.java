@@ -24,7 +24,7 @@ public class EncPersonaDAOHibernate implements EncPersonaDAO{
 
     @Override
     public void insert(EncPersonaDTO persona, EncProductoDTO producto) {
-        startOperation();
+        //startOperation();
         
         Query query = (Query)session.createSQLQuery( "select nextval('personas_encuesta_id_persona_seq');" );
         Integer key = Integer.parseInt(query.list().get( 0 ).toString());
@@ -46,7 +46,7 @@ public class EncPersonaDAOHibernate implements EncPersonaDAO{
     
     private void startOperation(){
         session = sessionf.openSession();
-        transaction = session.beginTransaction();
+        Transaction transaction = session.beginTransaction();
     }
 
     public Session getSession() {
@@ -62,7 +62,6 @@ public class EncPersonaDAOHibernate implements EncPersonaDAO{
     }
 
     public void setSessionf(SessionFactory sessionf) {
-                System.out.println("Session Factory creada");
         this.sessionf = sessionf;
     }
 

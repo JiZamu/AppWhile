@@ -31,11 +31,11 @@ public class EncuenstaController {
         
         System.out.println(en.getSession());
         System.out.println(en.getTransaction());
-//       
-//        EncPersonaDTO persona = new EncPersonaDTO("Eduardo J", "ESIME", "COMPU", new Date(System.currentTimeMillis()));
-//        EncProductoDTO prod = new EncProductoDTO(true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, "PruebaHimernate");
-//        
-//        en.insert(persona, prod);
+       
+        EncPersonaDTO persona = new EncPersonaDTO("Javier", "ESIME", "COMPU", new Date(System.currentTimeMillis()));
+        EncProductoDTO prod = new EncProductoDTO(true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, "PruebaHimernate");
+        
+        en.insert(persona, prod);
         return new ModelAndView("hola", "cadena", "programacion");
     }
     
