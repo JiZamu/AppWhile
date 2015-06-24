@@ -18,13 +18,13 @@ public class EncuenstaController {
     @RequestMapping(value = "/AgregarEncuesta", method = RequestMethod.GET)
     public ModelAndView encuesta(){
         System.out.println("Entro en controlador");
-//        ApplicationContext appContext = new ClassPathXmlApplicationContext("file:web/WEB-INF/Controlador-servlet");
-//       
-//        EncPersonaDAO en = (EncPersonaDAO)appContext.getBean("encPersonaDAO");
-//        EncPersonaDTO persona = new EncPersonaDTO("Eduardo J", "ESIME", "COMPU", new Date(System.currentTimeMillis()));
-//        EncProductoDTO prod = new EncProductoDTO(true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, "PruebaHimernate");
-//        
-//        en.insert(persona, prod);
+        ApplicationContext appContext = new ClassPathXmlApplicationContext("classpath:src/java/beans.xml");
+       
+        EncPersonaDAO en = (EncPersonaDAO)appContext.getBean("encPersonaDAO");
+        EncPersonaDTO persona = new EncPersonaDTO("Eduardo J", "ESIME", "COMPU", new Date(System.currentTimeMillis()));
+        EncProductoDTO prod = new EncProductoDTO(true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, "PruebaHimernate");
+        
+        en.insert(persona, prod);
         return new ModelAndView("hola", "cadena", "programacion");
     }
     
