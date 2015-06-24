@@ -35,6 +35,7 @@ public class EncPersonaDAOHibernate implements EncPersonaDAO{
         session.save(pers);
         session.save(prod);
         transaction.commit();
+        session.flush();
         session.close();
     }
 
